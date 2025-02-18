@@ -5,9 +5,6 @@ The model employs a graph convolutional encoder to extract deep relational featu
 and integrating a homogeneous information aggregation encoder to uncover indirect associations among drugs or targets. 
 
 
----
-# Code
-The HIDGN source code is accessible for academic use at https://github.com/ningq669/HIDGN/.
 
 ---
 
