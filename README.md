@@ -86,13 +86,13 @@ dependencies:
 *(Example: KIBA dataset)*
 
 Run the following commands to generate drug fingerprints:
+```
+python MACC_fingerprint.py -drug_smile_path ./KIBA/drugs.xlsx -feature_save_path ./KIBA/drug_features/MACC_features.xlsx
 
->python MACC_fingerprint.py -drug_smile_path ./KIBA/drugs.xlsx -feature_save_path ./KIBA/drug_features/MACC_features.xlsx
->
->python Mogan_fingerprint.py -drug_smile_path ./KIBA/drugs.xlsx -feature_save_path ./KIBA/drug_features/Mogan_features.xlsx
->
->python Topological_fingerprint.py -drug_smile_path ./KIBA/drugs.xlsx -feature_save_path ./KIBA/drug_features/Topological_features.xlsx
+python Mogan_fingerprint.py -drug_smile_path ./KIBA/drugs.xlsx -feature_save_path ./KIBA/drug_features/Mogan_features.xlsx
 
+python Topological_fingerprint.py -drug_smile_path ./KIBA/drugs.xlsx -feature_save_path ./KIBA/drug_features/Topological_features.xlsx
+```
 then you will get:
 
 ---> drug_features/MACC_features.xlsx
@@ -106,25 +106,27 @@ then you will get:
 retrieve all the fasta sequences according to the target uniprot id, and put all the fasta seqs in fasta_file directory. 
 
 Running: 
-> python /generate_protein_features/process_fasta.py
-
+```
+python /generate_protein_features/process_fasta.py
+```
 ---> fasta_seqs.txt
 
 Running: 
-> python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type AAC --out ../protein_features/AAC_features.txt
-> 
-> python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type CTDC --out ../protein_features/CTDC_features.txt
-> 
-> python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type CTDT --out ../protein_features/CTDT_features.txt
-> 
-> python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type CTDD --out ../protein_features/CTDD_features.txt 
-> 
-> python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type Moran --out ../protein_features/Moran_Correlation_features.txt
-> 
-> python /generate_protein_features/CTD_concate.py --ctdc_path --ctdt_path --ctdd_path --out ../CTD_features.txt 
-> 
-> python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type PAAC --out ../protein_features/PAAC_features.txt
+```
+python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type AAC --out ../protein_features/AAC_features.txt
 
+python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type CTDC --out ../protein_features/CTDC_features.txt
+
+python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type CTDT --out ../protein_features/CTDT_features.txt
+
+python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type CTDD --out ../protein_features/CTDD_features.txt 
+
+python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type Moran --out ../protein_features/Moran_Correlation_features.txt
+
+python /generate_protein_features/CTD_concate.py --ctdc_path --ctdt_path --ctdd_path --out ../CTD_features.txt 
+
+python /iFeature-master/iFeature.py --file ../fasta_seqs.txt --type PAAC --out ../protein_features/PAAC_features.txt
+```
 then you will get:
 
    ---> protein_features/AAC_features.txt
@@ -145,12 +147,13 @@ then you will get:
 
 ### 3. Generating drug affinity matrix and target affinity matrix 
 Running: 
-> python generate_drug_affinity_mat.py
-
+```
+python generate_drug_affinity_mat.py
+```
 ---> drug_affinity_mat.txt 
-
-> python generate_target_affinity_mat.py
-
+```
+python generate_target_affinity_mat.py
+```
 ---> target_affinity_mat.txt 
 
 ### 4. Check whether the above steps are correct 
@@ -179,7 +182,8 @@ Running:
 Running: 
 
 balanced_situatuion on KIBA
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset KIBA
                   --device cuda:0
                   --n_splits 10 
@@ -195,9 +199,10 @@ balanced_situatuion on KIBA
                   --epoch_num 1500
                   --lr 0.00003
                   --topk 1 
-  
+``` 
 imbalanced_situatuion on KIBA 
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset KIBA
                   --device cuda:0
                   --n_splits 10 
@@ -214,9 +219,11 @@ imbalanced_situatuion on KIBA
                   --epoch_num 1500
                   --lr 0.00005
                   --topk 10  
+```
 
 balanced_situatuion on davis 
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset davis
                   --device cuda:0
                   --n_splits 10 
@@ -232,9 +239,11 @@ balanced_situatuion on davis
                   --epoch_num 3000
                   --lr 0.0003
                   --topk 1 
-  
+```
+
 imbalanced_situatuion on davis 
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset davis
                   --device cuda:0
                   --n_splits 10 
@@ -251,9 +260,10 @@ imbalanced_situatuion on davis
                   --epoch_num 2100
                   --lr 0.0002
                   --topk 10 
-     
+```
 balanced_situatuion on BindingDB
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset BindingDB
                   --device cuda:0
                   --n_splits 10 
@@ -269,9 +279,10 @@ balanced_situatuion on BindingDB
                   --epoch_num 900
                   --lr 0.0000045
                   --topk 1 
-  
+```
 imbalanced_situatuion on BindingDB 
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset BindingDB
                   --device cuda:0
                   --n_splits 10 
@@ -288,9 +299,10 @@ imbalanced_situatuion on BindingDB
                   --epoch_num 750
                   --lr 0.000006
                   --topk 10 
-
+```
 balanced_situatuion on DrugBank 
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset DrugBank
                   --device cuda:0
                   --n_splits 10 
@@ -306,10 +318,11 @@ balanced_situatuion on DrugBank
                   --epoch_num 900
                   --lr 0.0001
                   --topk 1 
-
+```
   
 imbalanced_situatuion on DrugBank  
-> python main.py --root_path "E:/HIDGN/Data
+```
+python main.py --root_path "E:/HIDGN/Data
                   --dataset DrugBank
                   --device cuda:0
                   --n_splits 10 
@@ -326,5 +339,5 @@ imbalanced_situatuion on DrugBank
                   --epoch_num 1200
                   --lr 0.00002
                   --topk 10 
-
+```
    
