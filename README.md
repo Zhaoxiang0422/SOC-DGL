@@ -1,5 +1,5 @@
-# HIDGN
-HIDGN is an innovative model designed for drug-target interaction prediction, 
+# SOC-DGL
+SOC-DGL is an innovative model designed for drug-target interaction prediction, 
 leveraging a dual-encoder graph neural network to enhance the representation of homogeneous information. 
 The model employs a graph convolutional encoder to extract deep relational features between drugs and targets,
 and integrating a homogeneous information aggregation encoder to uncover indirect associations among drugs or targets. 
@@ -81,7 +81,7 @@ dependencies:
 
 ---
 
-# Running for HIDGN
+# Running for SOC-DGL
 ### 1. Generating drug fingerprints
 *(Example: KIBA dataset)*
 
