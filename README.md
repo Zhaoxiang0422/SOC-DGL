@@ -183,7 +183,7 @@ Running:
 
 balanced_situatuion on KIBA
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset KIBA
                   --device cuda:0
                   --n_splits 10 
@@ -202,7 +202,7 @@ python main.py --root_path "E:/HIDGN/Data
 ``` 
 imbalanced_situatuion on KIBA 
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset KIBA
                   --device cuda:0
                   --n_splits 10 
@@ -223,7 +223,7 @@ python main.py --root_path "E:/HIDGN/Data
 
 balanced_situatuion on davis 
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset davis
                   --device cuda:0
                   --n_splits 10 
@@ -243,7 +243,7 @@ python main.py --root_path "E:/HIDGN/Data
 
 imbalanced_situatuion on davis 
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset davis
                   --device cuda:0
                   --n_splits 10 
@@ -263,7 +263,7 @@ python main.py --root_path "E:/HIDGN/Data
 ```
 balanced_situatuion on BindingDB
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset BindingDB
                   --device cuda:0
                   --n_splits 10 
@@ -282,7 +282,7 @@ python main.py --root_path "E:/HIDGN/Data
 ```
 imbalanced_situatuion on BindingDB 
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset BindingDB
                   --device cuda:0
                   --n_splits 10 
@@ -302,7 +302,7 @@ python main.py --root_path "E:/HIDGN/Data
 ```
 balanced_situatuion on DrugBank 
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset DrugBank
                   --device cuda:0
                   --n_splits 10 
@@ -322,7 +322,7 @@ python main.py --root_path "E:/HIDGN/Data
   
 imbalanced_situatuion on DrugBank  
 ```
-python main.py --root_path "E:/HIDGN/Data
+python main.py --root_path "E:/SOC-DGL/Data
                   --dataset DrugBank
                   --device cuda:0
                   --n_splits 10 
