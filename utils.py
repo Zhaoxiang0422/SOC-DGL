@@ -73,7 +73,7 @@ def loss_function(pos_score,neg_score,drug_num,target_num):
     result = coeff * term
     return result
 
-def weighted_loss_function(pos_score, neg_score, drug_num, target_num, pos_weight):
+def adjustable_imbalance_loss_function(pos_score, neg_score, drug_num, target_num, pos_weight):
     lamda = neg_score.size(0) / pos_score.size(0)
     pos_loss = torch.sum(torch.log(pos_score)) * lamda * pos_weight
     neg_loss = torch.sum(torch.log(1.0 - neg_score))
