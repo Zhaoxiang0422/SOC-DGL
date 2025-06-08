@@ -7,7 +7,7 @@ import matplotlib as mpl
 mpl.use('Agg')
 from utils import *
 from data_reading import *
-from models import  DualEncoderModel
+from models import SOC_DGL
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -113,7 +113,7 @@ if __name__=="__main__":
         # initizalize the model
         train_W = torch.randn(hgcn_dim, hgcn_dim).to(device)
         train_W = nn.init.xavier_normal_(train_W)
-        model = DualEncoderModel(in_dim=H.size(0), hgcn_dim=hgcn_dim, hidden_dim=hidden_dim, K=K, alpha=alpha, Init='PPR', train_W=train_W, dropout=dropout).to(device)
+        model = SOC_DGL(in_dim=H.size(0), hgcn_dim=hgcn_dim, hidden_dim=hidden_dim, K=K, alpha=alpha, Init='PPR', train_W=train_W, dropout=dropout).to(device)
         model_optimizer = torch.optim.Adam(list(model.parameters()), lr=lr)
 
         # train procedure
@@ -137,7 +137,7 @@ if __name__=="__main__":
                 if epoch % epoch_interv == 0:
                     print('loss:', los_)
             else:
-                loss = weighted_loss_function(train_score, nega_score, drug_num, target_num, pos_weight)
+                loss = adjustable_imbalance_loss_function(train_score, nega_score, drug_num, target_num, pos_weight)
                 los_ = loss.detach().item()
                 model_optimizer.zero_grad()
                 loss.backward()
