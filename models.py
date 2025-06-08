@@ -68,9 +68,9 @@ class EvenProp(MessagePassing):
         return norm.view(-1, 1) * x_j
 
 
-class GCN_Encoder(nn.Module):
+class ADGL(nn.Module):
     def __init__(self, in_dim, hgcn_dim, dropout):
-        super(GCN_Encoder, self).__init__()
+        super(ADGL, self).__init__()
         self.gc1 = GraphConvolution(in_dim, hgcn_dim)
         self.gc2 = GraphConvolution(hgcn_dim, hgcn_dim)
         self.dropout = dropout
@@ -85,9 +85,9 @@ class GCN_Encoder(nn.Module):
         return H
 
 
-class Event_Encoder(nn.Module):
+class EDGL(nn.Module):
     def __init__(self, in_dim, hgcn_dim, hidden_dim, K, alpha, Init, dropout):
-        super(Event_Encoder, self).__init__()
+        super(EDGL, self).__init__()
         self.lin1 = Linear(hgcn_dim, hidden_dim)
         self.lin2 = Linear(hidden_dim, hgcn_dim)
         self.prop1 = EvenProp(K, alpha, Init)
@@ -128,17 +128,17 @@ def to_edge_index(matrix):
     return edge_index
 
 
-class DualEncoderModel(nn.Module):
+class SOC_DGL(nn.Module):
     def __init__(self, in_dim, hgcn_dim, hidden_dim, K, alpha, Init, train_W, dropout):
-        super(DualEncoderModel, self).__init__()
-        self.gcn_encoder = GCN_Encoder(in_dim, hgcn_dim, dropout)
-        self.event_encoder = Event_Encoder(in_dim, hgcn_dim, hidden_dim, K, alpha, Init, dropout)
+        super(SOC_DGL, self).__init__()
+        self.adgl = ADGL(in_dim, hgcn_dim, dropout)
+        self.edgl = EDGL(in_dim, hgcn_dim, hidden_dim, K, alpha, Init, dropout)
         self.decoder = Decoder(train_W)
         self.dropout = dropout
 
     def forward(self, H, G, drug_num, target_num, w):
         # GCN Encoding
-        H1 = self.gcn_encoder(H, G)
+        H1 = self.adgl(H, G)
 
         # Event Encoding
         drug_protein_matrix = G[:drug_num, drug_num:(drug_num + target_num)]
@@ -146,7 +146,7 @@ class DualEncoderModel(nn.Module):
         edge_index = to_edge_index(drug_protein_matrix)
         H1 = H1.to('cuda:0')
         edge_index = edge_index.to('cuda:0')
-        H2 = self.event_encoder(H1, edge_index)
+        H2 = self.edgl(H1, edge_index)
 
         # Fusion of encodings
         H = w * H1 + (1 - w) * H2
