@@ -3,7 +3,7 @@ import argparse
 def get_config():
     parse = argparse.ArgumentParser(description='common train config')
     # parameters for the data reading and train-test-splitting
-    parse.add_argument('-root_path', '--root_path_topofallfeature', type=str, nargs='?', default="E:/HIDGN/Data",help="root dataset path")
+    parse.add_argument('-root_path', '--root_path_topofallfeature', type=str, nargs='?', default="E:/SOC-DGL/Data",help="root dataset path")
     parse.add_argument('-dataset', '--dataset_topofallfeature', type=str, nargs='?', default="DrugBank",help="setting the dataset:DrugBank or KIBA")
 
     # parameters for generating drug affinity matrix
