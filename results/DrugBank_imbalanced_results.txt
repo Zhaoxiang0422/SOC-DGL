@@ -9045,5 +9045,3 @@ mean_acc: 0.9508011996746063
 mean_recall: 0.6567208230495453
 mean_specificity: 0.9823592662811279
 mean_precision: 0.8004239082336426
-
-Process finished with exit code 0
