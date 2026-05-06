@@ -61,6 +61,7 @@ class EvenProp(MessagePassing):
             x = self.propagate(edge_index2, x=x, norm=norm2)
             gamma = self.temp[k + 1]
             hidden += gamma * x
+            break
         return hidden
 
     def message(self, x_j, norm):
