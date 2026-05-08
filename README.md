@@ -281,7 +281,7 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --dti_mat dti_mat.xlsx
                   --hgcn_dim 1200
                   --hidden_dim 100
-                  --K 5
+                  --K 4
                   --alpha 0.4
                   --w 0.8
                   --pos_weight 0.2
@@ -321,7 +321,7 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --dti_mat dti_mat.xlsx
                   --hgcn_dim 3000
                   --hidden_dim 50
-                  --K 5
+                  --K 4
                   --alpha 0.6
                   --w 0.9
                   --pos_weight 0.1
