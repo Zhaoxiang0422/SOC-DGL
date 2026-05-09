@@ -245,7 +245,7 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --K 2
                   --alpha 0.4
                   --w 0.2
-                  --pos_weight 0.5
+                  --pos_weight 0.3
                   --dropout 0.01
                   --epoch_num 2100
                   --lr 0.0002
@@ -284,7 +284,7 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --K 4
                   --alpha 0.4
                   --w 0.8
-                  --pos_weight 0.2
+                  --pos_weight 0.3
                   --dropout 0.001
                   --epoch_num 750
                   --lr 0.000006
@@ -322,7 +322,7 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --hgcn_dim 3000
                   --hidden_dim 50
                   --K 4
-                  --alpha 0.6
+                  --alpha 0.2
                   --w 0.9
                   --pos_weight 0.1
                   --dropout 0.01
