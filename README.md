@@ -182,7 +182,7 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --dti_mat dti_mat.xlsx
                   --hgcn_dim 3000
                   --hidden_dim 1500
-                  --K 2
+                  --K 4
                   --alpha 0.1
                   --w 0.8
                   --dropout 0.1
@@ -222,8 +222,8 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --dti_mat dti_mat.xlsx
                   --hgcn_dim 1000
                   --hidden_dim 200
-                  --K 2
-                  --alpha 0.4
+                  --K 6
+                  --alpha 0.2
                   --w 0.2
                   --dropout 0.2
                   --epoch_num 3000
@@ -262,8 +262,8 @@ python main.py --root_path "E:/SOC-DGL/Data
                   --dti_mat dti_mat.xlsx
                   --hgcn_dim 2000
                   --hidden_dim 100
-                  --K 5
-                  --alpha 0.15
+                  --K 10
+                  --alpha 0.25
                   --w 0.5
                   --dropout 0.00001
                   --epoch_num 900
